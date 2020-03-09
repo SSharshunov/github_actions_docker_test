@@ -10,7 +10,7 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: docker://docker.pkg.github.com/ssharshunov/chaos_calmer/openwrt_build
-  # image: 'Dockerfile'
-  # args:
-    # - ${{ inputs.who-to-greet }}
+  # image: docker://docker.pkg.github.com/ssharshunov/chaos_calmer/openwrt_build
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
