@@ -31,9 +31,12 @@ jobs:
     steps:
       - name: Login to GitHub Package Registry
         run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
-      - uses: docker://docker.pkg.github.com/ssharshunov/chaos_calmer/openwrt_build
+
       - run: ls /
+      - uses: docker://docker.pkg.github.com/ssharshunov/chaos_calmer/openwrt_build
+
       - run: echo $HOME
+      
       - name: Add a file
         run: touch $HOME/stuff.txt
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
