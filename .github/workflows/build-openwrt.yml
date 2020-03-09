@@ -30,13 +30,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Login to GitHub Package Registry
-        run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
-
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       - run: ls /
       # - uses: docker://docker.pkg.github.com/ssharshunov/chaos_calmer/openwrt_build
 
       - run: echo $HOME
-      
+
       - name: Add a file
         run: touch $HOME/stuff.txt
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
