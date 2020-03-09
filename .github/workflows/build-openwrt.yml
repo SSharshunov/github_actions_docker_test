@@ -29,6 +29,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Log in to registry
+        uses: actions/docker/login@master
+        env:
+          DOCKER_REGISTRY_URL: docker.pkg.github.com
+          DOCKER_USERNAME: ${{ github.actor }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        if: github.event_name == 'push'
       - uses: docker://docker.pkg.github.com/ssharshunov/chaos_calmer/openwrt_build
       - run: ls /
       - run: echo $HOME
