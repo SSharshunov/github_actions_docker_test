@@ -43,7 +43,7 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: actions/github_actions@master
+        uses: SSharshunov/github_actions_docker_test@master
 
       # - uses: docker://docker.pkg.github.com/ssharshunov/chaos_calmer/openwrt_build
 
