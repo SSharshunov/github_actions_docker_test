@@ -42,8 +42,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Hello world action step
+        # id: hello
+        # uses: SSharshunov/github_actions_docker_test@master
+        uses: ./ # Uses an action in the root directory
         id: hello
-        uses: SSharshunov/github_actions_docker_test@master
+        with:
+          who-to-greet: 'Mona the Octocat'
 
       # - uses: docker://docker.pkg.github.com/ssharshunov/chaos_calmer/openwrt_build
 
